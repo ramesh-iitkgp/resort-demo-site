@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Resort | Paradise Awaits</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #78350f;
+            --primary-light: #92400e;
+            --secondary: #dcfce7;
+            --accent: #f59e0b;
+            --bg-dark: #1f2937;
+            --bg-light: #f5f5f4;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+        }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--bg-dark);
+            padding: 1.5rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #f3f4f6;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1507525428480-e7e60b5f5c03?w=1200&h=700&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 60px;
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+            letter-spacing: 1px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background-color: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn:hover {
+            background-color: #dc2626;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(245, 158, 11, 0.3);
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 0;
+        }
+
+        section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: var(--primary);
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        section h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent);
+            margin: 1rem auto 0;
+        }
+
+        /* Rooms Section */
+        .rooms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .room-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .room-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+        }
+
+        .room-image {
+            width: 100%;
+            height: 280px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .room-info {
+            padding: 2rem;
+        }
+
+        .room-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .room-price {
+            color: var(--accent);
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .room-info p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Activities Section */
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .activity-card {
+            background-color: white;
+            padding: 2.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+        }
+
+        .activity-card:hover {
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        .activity-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .activity-card h3 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+        }
+
+        .activity-card p {
+            color: var(--text-light);
+        }
+
+        /* Amenities Section */
+        .amenities-list {
+            background-color: white;
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .amenities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .amenity {
+            padding: 1.5rem;
+            text-align: center;
+            border-bottom: 2px solid var(--bg-light);
+        }
+
+        .amenity:hover {
+            border-bottom-color: var(--accent);
+        }
+
+        .amenity-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .amenity h4 {
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .amenity p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(135deg, #291f2c 0%, #1f2937 100%);
+        }
+
+        .contact-box {
+            background-color: white;
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 12px 36px rgba(0,0,0,0.2);
+            text-align: center;
+            border-top: 4px solid var(--accent);
+        }
+
+        .contact-box h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 2rem;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-item label {
+            display: block;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        .contact-item p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--bg-dark);
+            color: #f3f4f6;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        footer p {
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            section h2 {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <script src="../assets/inject-data.js"></script>
+    <script>
+        window.TEMPLATE_CATEGORY = 'resort';
+    </script>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">🏨 <span id="resortName">Paradise Resort</span></div>
+            <ul class="nav-links">
+                <li><a href="#rooms">Rooms</a></li>
+                <li><a href="#activities">Activities</a></li>
+                <li><a href="#amenities">Amenities</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Escape to Paradise</h1>
+            <p>Your Ultimate Luxury Resort Destination</p>
+            <button class="btn" id="bookBtn">Reserve Now</button>
+        </div>
+    </section>
+
+    <!-- Rooms Section -->
+    <section id="rooms">
+        <div class="container">
+            <h2>Luxurious Rooms</h2>
+            <div class="rooms-grid">
+                <div class="room-card">
+                    <div class="room-image" style="background-image: url('https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=280&fit=crop')"></div>
+                    <div class="room-info">
+                        <h3>Garden View</h3>
+                        <p class="room-price">₹15,000/night</p>
+                        <p>Serene room overlooking lush gardens with modern amenities</p>
+                    </div>
+                </div>
+                <div class="room-card">
+                    <div class="room-image" style="background-image: url('https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=400&h=280&fit=crop')"></div>
+                    <div class="room-info">
+                        <h3>Ocean Suite</h3>
+                        <p class="room-price">₹22,000/night</p>
+                        <p>Stunning beachfront suite with private terrace and spa</p>
+                    </div>
+                </div>
+                <div class="room-card">
+                    <div class="room-image" style="background-image: url('https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=400&h=280&fit=crop')"></div>
+                    <div class="room-info">
+                        <h3>Penthouse Villa</h3>
+                        <p class="room-price">₹35,000/night</p>
+                        <p>Premium villa with private pool, butler service & 360° views</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Activities Section -->
+    <section id="activities">
+        <div class="container">
+            <h2>Incredible Experiences</h2>
+            <div class="activities-grid">
+                <div class="activity-card">
+                    <div class="activity-icon">🚣</div>
+                    <h3>Water Sports</h3>
+                    <p>Kayaking, parasailing, jet skiing, and snorkeling adventures</p>
+                </div>
+                <div class="activity-card">
+                    <div class="activity-icon">🏖️</div>
+                    <h3>Beach Bliss</h3>
+                    <p>Private beach access, sunset dinners, and beach volleyball</p>
+                </div>
+                <div class="activity-card">
+                    <div class="activity-icon">🧘</div>
+                    <h3>Wellness & Spa</h3>
+                    <p>Yoga classes, massages, meditation, and holistic treatments</p>
+                </div>
+                <div class="activity-card">
+                    <div class="activity-icon">🍽️</div>
+                    <h3>Fine Dining</h3>
+                    <p>International cuisine, themed dinners, and private chef service</p>
+                </div>
+                <div class="activity-card">
+                    <div class="activity-icon">🎯</div>
+                    <h3>Adventure Sports</h3>
+                    <p>Hiking, rock climbing, zip-lining, and guided nature tours</p>
+                </div>
+                <div class="activity-card">
+                    <div class="activity-icon">🎭</div>
+                    <h3>Entertainment</h3>
+                    <p>Live music, cultural shows, beach parties, and movie nights</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Amenities Section -->
+    <section id="amenities">
+        <div class="container">
+            <h2>World-Class Amenities</h2>
+            <div class="amenities-list">
+                <div class="amenities-grid">
+                    <div class="amenity">
+                        <div class="amenity-icon">🏊</div>
+                        <h4>Olympic Pool</h4>
+                        <p>3 heated pools with water slides and infinity pool</p>
+                    </div>
+                    <div class="amenity">
+                        <div class="amenity-icon">💆</div>
+                        <h4>Spa & Wellness</h4>
+                        <p>Full-service spa with treatments from around the world</p>
+                    </div>
+                    <div class="amenity">
+                        <div class="amenity-icon">🏋️</div>
+                        <h4>Fitness Center</h4>
+                        <p>State-of-the-art gym with personal trainer services</p>
+                    </div>
+                    <div class="amenity">
+                        <div class="amenity-icon">🍷</div>
+                        <h4>Wine Bar</h4>
+                        <p>Premium selection of wines and craft cocktails</p>
+                    </div>
+                    <div class="amenity">
+                        <div class="amenity-icon">📚</div>
+                        <h4>Library</h4>
+                        <p>Quiet retreat with books, games, and comfortable seating</p>
+                    </div>
+                    <div class="amenity">
+                        <div class="amenity-icon">🎵</div>
+                        <h4>Entertainment</h4>
+                        <p>Theater, nightclub, casino, and live performance venue</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="contact-box">
+                <h3>Book Your Escape</h3>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <label>📞 Phone</label>
+                        <p id="resortPhone">+91 98765 43210</p>
+                    </div>
+                    <div class="contact-item">
+                        <label>📍 Location</label>
+                        <p id="resortLocation">Goa, India</p>
+                    </div>
+                    <div class="contact-item">
+                        <label>✉️ Email</label>
+                        <p id="resortEmail">info@paradiseresort.com</p>
+                    </div>
+                </div>
+                <button class="btn" id="whatsappBtn">Chat on WhatsApp</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="resortFooter">Paradise Resort</span> 2024. All rights reserved. | Your Dream Vacation Awaits</p>
+        </div>
+    </footer>
+
+    <script>
+        // Inject business data
+        setTimeout(() => {
+            if (window.businessData) {
+                document.getElementById('resortName').textContent = window.businessData.name || 'Paradise Resort';
+                document.getElementById('resortPhone').textContent = window.businessData.phone || '+91 98765 43210';
+                document.getElementById('resortLocation').textContent = window.businessData.location || 'Goa, India';
+                document.getElementById('resortEmail').textContent = window.businessData.email || 'info@paradiseresort.com';
+                document.getElementById('resortFooter').textContent = window.businessData.name || 'Paradise Resort';
+                
+                // Update WhatsApp button
+                if (window.whatsappLink) {
+                    document.getElementById('whatsappBtn').href = window.whatsappLink;
+                } else {
+                    document.getElementById('whatsappBtn').onclick = () => {
+                        const phone = window.businessData.phone || '919876543210';
+                        window.open(`https://wa.me/${phone}?text=Hi, I'm interested in booking at ${window.businessData.name}`, '_blank');
+                    };
+                }
+                
+                // Update book button
+                document.getElementById('bookBtn').onclick = document.getElementById('whatsappBtn').onclick;
+            }
+        }, 100);
+    </script>
+</body>
+</html>
