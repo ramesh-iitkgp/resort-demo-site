@@ -1,0 +1,39 @@
+{
+  "business_name": "Pink Pearl Beach Resort",
+  "canonical_name": "Pink Pearl Beach Resort",
+  "short_name": "Pink Pearl",
+  "tagline": "Where Coastal Serenity Meets Oceanfront Luxury",
+  "editorial_subhead": "Private Beachfront Cottages & Signature Illuminated Pool on Mandarmani Beach",
+  "category": "Beach Resort & Hotel",
+  "industry_slug": "hotel",
+  "city": "Mandarmani",
+  "state": "West Bengal",
+  "country": "India",
+  "address": "Beach Road, Mandarmani Coastal Belt, Purba Medinipur, West Bengal 721455",
+  "short_location": "Mandarmani, West Bengal",
+  "phone": "+91 98300 00000",
+  "whatsapp": "+91 98300 00000",
+  "whatsapp_number_digits": "919830000000",
+  "email": "stay@pinkpearlbeachresort.com",
+  "rating": 4.8,
+  "review_count": 348,
+  "currency": "INR",
+  "currency_symbol": "₹",
+  "check_in_time": "11:30 AM",
+  "check_out_time": "10:30 AM",
+  "starting_rate": 2999,
+  "features": [
+    "Direct Beachfront Access & Wooden Ocean Deck",
+    "Signature Swimming Pool with Evening Neon Pink Illumination",
+    "Air-Conditioned Private Cottages with Mood Lighting",
+    "Multi-Cuisine Seafood Restaurant with Bay of Bengal Specialties",
+    "Direct 1-Tap WhatsApp Booking & 15% Lowest Rate Guarantee",
+    "Secure On-Site Car Parking & 24/7 Security"
+  ],
+  "stats": [
+    { "label": "Distance to Beach", "value": "0 Steps", "sub": "Direct Oceanfront Wooden Deck" },
+    { "label": "Private Cottages", "value": "24+", "sub": "Deluxe AC Rooms & Suites" },
+    { "label": "Guest Rating", "value": "4.8 ★", "sub": "Over 340+ Verified Reviews" },
+    { "label": "Drive from Kolkata", "value": "3.5 Hrs", "sub": "170 km Smooth Expressway" }
+  ]
+}
